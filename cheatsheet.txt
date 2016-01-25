@@ -1,0 +1,19 @@
+Useful Commands to Remeber
+
+Terminal Commands:
+ls <directory name>:  List contents of a directory
+cd: Go home.
+cd <directory name>:  Change directory
+cd ..: Go up
+cat <file name>: View the contents of a file
+gedit <file name> &
+Git Commands:
+git clone --config="http.proxy=http://uname:pword@192.168.2.1:8080" http://url-to-your-repo
+git add <file name>
+git commit -m "Commit Comment"
+git push
+
+mkdir - creates new empty folder 
+rmdir - remove folder (delete) 
+cd.. - takes you back out a step
+!pwd - present working directory 
