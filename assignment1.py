@@ -1,0 +1,11 @@
+myName = "Lydia"
+myAge = 14.7
+myHeight = 1.6764
+squareSide = 4
+lengthRectanlge = 6
+heightRectangle = 4
+ageinmonths = myAge * 12
+yearsleft = 78.74 - myAge
+heightinft = myHeight * 3.28084
+heightdifference = 1.587 - myHeight
+squareArea = squareSide * 2
