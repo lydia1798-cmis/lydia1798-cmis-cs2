@@ -49,8 +49,8 @@
 import math
 
 def diameter(area):
-	sqrt = math.sqrt(area)	
-	radius = sqrt / math.pi
+	radius_sqrd = area / math.pi
+	radius = math.sqrt(radius_sqrd)
 	diameter = radius * 2
 	return diameter
 
