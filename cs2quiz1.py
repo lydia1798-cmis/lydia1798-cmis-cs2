@@ -1,4 +1,6 @@
-#Part 1: Terminology (15 points)
+
+#Part 1: Terminology (15 points)-12.5/15 points
+#Programming-24/25 points
 #1 1pt) What is the symbol "=" used for? (1)
 # Used to put calue into a variable, called an assignment operator. 
 #
@@ -31,7 +33,8 @@
 #	2: processing -  figures out what the program does and does it
 #	3: output - it returns to you the result of that program
 #
-#Part 2: Programming (25 points) 
+#
+#Part 2: Programming (25 points)-23/25 points
 #Write a program that asks the user for the areas of 3 circles.
 #It should then calculate the diameter of each and the sum of the diameters 
 #of the 3 circles.
