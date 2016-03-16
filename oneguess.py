@@ -1,9 +1,11 @@
 import random
 
+#the number you are comparing things with
 def THEtarget(minimum, maximum):
 	target = random.randint(minimum, maximum)
 	return target
-	 
+
+#Getting the minimum and maximum and doing the comparison. You find the target number in main with the raw input and the THEtarget function. 
 def main():
 	minimum = int(raw_input("What is the minimum number?: "))
 	maximum = int(raw_input("What is the maximum number?: "))
@@ -30,6 +32,6 @@ Your target was {}.
 Your guess was {}.
 That's over by {}.
 		""".format(target, your_number, sub)
-
+#cant do else because then it wil be automatic
 
 main()	
