@@ -31,15 +31,17 @@ import random
 def choice(desicion):
 	if desicion == yes:
 		print "You have chosen to fight..."
-	if desicion == no:
+	else:
 		print "You have chosen not to fight, giving the enemy the upper hand and you are killed. Try again."	
 
 #The number of lives that you will have
 def lives(age):
-	if age <= 14: 
+	if age <= 13: 
 		final = (age + 9)/2
 	elif age >= 15: 
 		final = (age - 9)/2
+	else:
+		(random.random + 18)/2
 	return final
 
 #your strength based upon the number of your pill
@@ -53,7 +55,7 @@ def strength(pill_number):
 	elif pill_number == 4:
 		strength = 25
 	else:
-		strength = random.randint(1, 100)
+		strength = random.randint(1, 4)
 	return strength 
 
 #your defense based upon the number of your pill
@@ -70,25 +72,43 @@ def defense(pill_number):
 		defense = random.randint(1, 100)
 	return defense
 
-def weapon(weapon_of_choice):
-	if weapon_of_choice == sword & sheild and strength >= 50 and defense <= 50:
+#your weapon will decide if you win of lose. 
+#you have to elif everything 
+def weapon(weapon_of_choice, strength, defense):
+	if weapon_of_choice == "sword & sheild" and strength >= 50 and defense <= 50:
 		print "Good job! You have slayed the monster and won!"
-	else:
+
+	elif not weapon_of_choice == "sword & sheild" and not strength >= 50 and not defense <= 50:
 		print "Sorry, you got killed and have lost the game.."
-	if weapon_of_choice == gun and strength >= 25 and defense <= 75:
+
+	elif weapon_of_choice == "gun" and strength >= 25 and defense <= 75:
 		print "Good job! You have slayed the monster and won!"
-	else:
+
+	elif not weapon_of_choice == "gun" and not strength >= 25 and not defense <= 75:
 		print "Sorry, you got killed and have lost the game.."
-	if weapon_of_choice == bow & arrow and strength >= 0 and defense >= 50:
+
+	elif weapon_of_choice == "bow & arrow" and strength >= 0 and defense >= 50:
 		print "Good job! You have slayed the monster and won!"
-	else:
+
+	elif not weapon_of_choice == "bow & arrow" and not strength >= 0 and not defense >= 50:
 		print "Sorry, you got killed and have lost the game.."
-	if weapon_of_choice == magical_wand:
-		print "You have won! How ever since you used the wand you will be" #figure this out later
+
+	elif weapon_of_choice == "magical wand":
+		print "You have won! How ever since you used the wand you will be" 
+
+def output():
+	print """
+You are walking along a path in a forest and you come upon a monster.
+"""
 
 
-
-
-
-
-		
+def main():
+	do_you_want_to_fight = raw_input("Do you want to fight with it? (yes/no) ")
+	age = raw_input("How old are you? ")
+	chose_a_pill = raw_input("Chose a pill, 1, 2, 3, 4 or random. ")
+	chose_a_weapon = raw_input("Chose a weapon: sword & sheild, a gun, a bow & arrow and a magical wand. ")
+	your_choice = choice(do_you_want_to_fight)
+	your_lives = lives(age)
+	your_stregth = strength(chose_a_pill)
+	your_defense = defense(chose_a_pill)
+	
