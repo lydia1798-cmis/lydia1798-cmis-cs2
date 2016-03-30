@@ -10,14 +10,12 @@
 #	"You are walking along a path in a forest and you come upon a monster. (Q.1) 'Do you want to fight it?' (yes, no)
 #	No: You have chosen not to fight. Unfortuantly this has made it easier for the monster to kill you and you have just died.
 #	Yes: "Get ready to fight....."
-#		(Q.2) 'How old are you?' (your age)
 #		(Q.3) 'Chose a pill, 1, 2, 3, 4 or random' (1, 2, 3, 4 or random) - If you chose #1 = 100 strengths + 25 defenses. #2 = 75 strengths + 50 defenses. #3 = 50 stregths + 75 defenses. #4 = 25 strengths + 100 defenses. If you chose random it will take a random number from 1-100 for each defense and strength.
 #		(Q.4) 'Chose a weapon: sword & sheild, a gun, a bow & arrow and a magical wand." (sword & sheild, a gun, a bow & arrow and a magical wand) - 
 # Sword & sheild = If strength is more than 50 & defense is less than 50 then you win. If not you lose.
 # Gun = If strenght is more than 25 and defense is less than 75 then you win.
 # Bow and arrow = If strength is more than 0 and defense is more than 50 then you win.
 # Magical wand = you always win but you will be teleported anywhere in the world.
-#	"You have {} lives.
 #	"Your strength is at {}.
 #	"Your defense is at {}.
 #	"You have a {}.
@@ -29,20 +27,11 @@
 import random
 
 def choice(desicion):
-	if desicion == yes:
+	if desicion == "yes":
 		print "You have chosen to fight..."
 	else:
 		print "You have chosen not to fight, giving the enemy the upper hand and you are killed. Try again."	
-
-#The number of lives that you will have
-def lives(age):
-	if age <= 13: 
-		final = (age + 9)/2
-	elif age >= 15: 
-		final = (age - 9)/2
-	else:
-		(random.random + 18)/2
-	return final
+		exit()
 
 #your strength based upon the number of your pill
 def strength(pill_number):
@@ -76,39 +65,45 @@ def defense(pill_number):
 #you have to elif everything 
 def weapon(weapon_of_choice, strength, defense):
 	if weapon_of_choice == "sword & sheild" and strength >= 50 and defense <= 50:
-		print "Good job! You have slayed the monster and won!"
+		return "Good job! You have slayed the monster and won!"
 
 	elif not weapon_of_choice == "sword & sheild" and not strength >= 50 and not defense <= 50:
-		print "Sorry, you got killed and have lost the game.."
+		return "Sorry, you got killed and have lost the game."
 
 	elif weapon_of_choice == "gun" and strength >= 25 and defense <= 75:
-		print "Good job! You have slayed the monster and won!"
+		return "Good job! You have slayed the monster and won!"
 
 	elif not weapon_of_choice == "gun" and not strength >= 25 and not defense <= 75:
-		print "Sorry, you got killed and have lost the game.."
+		return "Sorry, you got killed and have lost the game."
 
 	elif weapon_of_choice == "bow & arrow" and strength >= 0 and defense >= 50:
-		print "Good job! You have slayed the monster and won!"
+		return "Good job! You have slayed the monster and won!"
 
 	elif not weapon_of_choice == "bow & arrow" and not strength >= 0 and not defense >= 50:
-		print "Sorry, you got killed and have lost the game.."
+		return "Sorry, you got killed and have lost the game."
 
-	elif weapon_of_choice == "magical wand":
-		print "You have won! How ever since you used the wand you will be" 
+	elif weapon_of_choice == "magical wand" and strength < 75:
+		return "You have won! How ever since you used the wand you will be" 
 
-def output():
-	print """
-You are walking along a path in a forest and you come upon a monster.
-"""
+def output_last(strength, defense, weapon):
+	return """
+	Your strength is at {}.
+	Your defense is at {}.
+	You have a {}.""".format(strength, defense, weapon)
+	
 
+#do you have to use string format or can you just or format?
 
 def main():
+	print "You are walking along a path in a forest and you come upon a monster."
 	do_you_want_to_fight = raw_input("Do you want to fight with it? (yes/no) ")
-	age = raw_input("How old are you? ")
+	your_choice = choice(do_you_want_to_fight)
+	print "Get ready..." #don't know if I should include this
 	chose_a_pill = raw_input("Chose a pill, 1, 2, 3, 4 or random. ")
 	chose_a_weapon = raw_input("Chose a weapon: sword & sheild, a gun, a bow & arrow and a magical wand. ")
-	your_choice = choice(do_you_want_to_fight)
-	your_lives = lives(age)
 	your_stregth = strength(chose_a_pill)
 	your_defense = defense(chose_a_pill)
+	your_weapon = weapon(weapon_of_choice, your_strength, your_defense)
+
+main()
 	
