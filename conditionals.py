@@ -2,7 +2,6 @@
 
 #The questions that are going to be asked:
 #	1. "Do you want to fight with it?" (yes, no)
-#	2. "How old are you?" (your age)
 #	3. "Chose a pill, 1, 2, 3, 4 or random." (1, 2, 3, 4, random)
 #	4. "Chose a weapon: sword & sheild, a gun, a bow & arrow and a magical wand." (sword & sheild, a gun, a bow & arrow and a magical wand)
 
@@ -65,31 +64,39 @@ def defense(pill_number):
 #you have to elif everything 
 def weapon(weapon_of_choice, strength, defense):
 	if weapon_of_choice == "sword & sheild" and strength >= 50 and defense <= 50:
-		return "Good job! You have slayed the monster and won!"
+		return True
 
 	elif not weapon_of_choice == "sword & sheild" and not strength >= 50 and not defense <= 50:
-		return "Sorry, you got killed and have lost the game."
+		return False
 
 	elif weapon_of_choice == "gun" and strength >= 25 and defense <= 75:
-		return "Good job! You have slayed the monster and won!"
+		return True
 
 	elif not weapon_of_choice == "gun" and not strength >= 25 and not defense <= 75:
-		return "Sorry, you got killed and have lost the game."
+		return False
 
 	elif weapon_of_choice == "bow & arrow" and strength >= 0 and defense >= 50:
-		return "Good job! You have slayed the monster and won!"
+		return True
 
 	elif not weapon_of_choice == "bow & arrow" and not strength >= 0 and not defense >= 50:
-		return "Sorry, you got killed and have lost the game."
+		return False
 
 	elif weapon_of_choice == "magical wand" and strength < 75:
-		return "You have won! How ever since you used the wand you will be" 
+		return True
+
+def determine_result(weapon, strength, defense):
+	if weapon == True:
+		return "The monster comes at you and since you have a strength of {}, a defense of {} and a {},  you win!".format(strength, defense, weapon)
+	elif weapon == False:
+		return "The monster comes at you but since you have a strength of {}, a defense of {} and a {}, you lose....".format(strength, defense, weapon)
+
 
 def output_last(strength, defense, weapon):
 	return """
-	Your strength is at {}.
-	Your defense is at {}.
-	You have a {}.""".format(strength, defense, weapon)
+Your strength is at {}.
+Your defense is at {}.
+You have a {}.
+""".format(strength, defense, weapon)
 	
 
 #do you have to use string format or can you just or format?
@@ -100,10 +107,13 @@ def main():
 	your_choice = choice(do_you_want_to_fight)
 	print "Get ready..." #don't know if I should include this
 	chose_a_pill = raw_input("Chose a pill, 1, 2, 3, 4 or random. ")
-	chose_a_weapon = raw_input("Chose a weapon: sword & sheild, a gun, a bow & arrow and a magical wand. ")
-	your_stregth = strength(chose_a_pill)
+	your_strength = strength(chose_a_pill)
 	your_defense = defense(chose_a_pill)
-	your_weapon = weapon(weapon_of_choice, your_strength, your_defense)
+	chose_a_weapon = raw_input("Chose a weapon: sword & sheild, a gun, a bow & arrow and a magical wand. ")
+	your_weapon = weapon(chose_a_weapon, your_strength, your_defense)
+	print output_last(your_strength, your_defense, chose_a_weapon)
+	result = determine_result(your_strength, your_defense, your_weapon)
+	print result
 
 main()
 	
