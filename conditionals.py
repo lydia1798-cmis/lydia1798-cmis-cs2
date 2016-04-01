@@ -25,6 +25,25 @@
 
 import random
 
+def lives(age):
+	if age <= 14: 
+		final = age + 9 + age/2
+	elif age >= 15: 
+		final = age - 9 + age/2
+	if age <= 14: 
+		final = (age + 9)/2
+	elif age >= 15: 
+		final = (age - 9)/2
+	return final
+
+def play_again(lives):
+	if lives < 0:
+		main()
+
+def incremented_lives(play_again, lives):
+	if play_again:
+		lives = lives - 1
+
 def choice(desicion):
 	if desicion == "yes":
 		print "You have chosen to fight..."
@@ -43,7 +62,7 @@ def strength(pill_number):
 	elif pill_number == 4:
 		strength = 25
 	else:
-		strength = random.randint(1, 4)
+		strength = random.randint(1, 100)
 	return strength 
 
 #your defense based upon the number of your pill
@@ -81,22 +100,30 @@ def weapon(weapon_of_choice, strength, defense):
 	elif not weapon_of_choice == "bow & arrow" and not strength >= 0 and not defense >= 50:
 		return False
 
-	elif weapon_of_choice == "magical wand" and strength < 75:
+	elif weapon_of_choice == "magical wand":
 		return True
 
-def determine_result(weapon, strength, defense):
-	if weapon == True:
-		return "The monster comes at you and since you have a strength of {}, a defense of {} and a {},  you win!".format(strength, defense, weapon)
-	elif weapon == False:
-		return "The monster comes at you but since you have a strength of {}, a defense of {} and a {}, you lose....".format(strength, defense, weapon)
+def determine_result(strength, defense, your_weapon, chose_a_weapon):
+	if your_weapon == True:
+		return "The monster comes at you and since you have a strength of {}, a defense of {} and a {},  you win!".format(strength, defense, chose_a_weapon)
+	else: 
+		return "The monster comes at you but since you have a strength of {}, a defense of {} and a {}, you die....".format(strength, defense, chose_a_weapon)
+
+def magical_wand(weapon):
+	if weapon == "magical wand":
+		return "Because you used the easiest weapon, the magical wand, it took all of your energy to kill the monster. You only have 1 year left to live."
 
 
-def output_last(strength, defense, weapon):
+def output_last(strength, defense, weapon, lives):
+	life = "lives"
+	if lives == 1:
+		life = "life"
 	return """
+You have {} {}.
 Your strength is at {}.
 Your defense is at {}.
 You have a {}.
-""".format(strength, defense, weapon)
+""".format(lives, life, strength, defense, weapon)
 	
 
 #do you have to use string format or can you just or format?
@@ -106,14 +133,17 @@ def main():
 	do_you_want_to_fight = raw_input("Do you want to fight with it? (yes/no) ")
 	your_choice = choice(do_you_want_to_fight)
 	print "Get ready..." #don't know if I should include this
+	lives = int(raw_input("How old are you? "))
 	chose_a_pill = raw_input("Chose a pill, 1, 2, 3, 4 or random. ")
 	your_strength = strength(chose_a_pill)
 	your_defense = defense(chose_a_pill)
 	chose_a_weapon = raw_input("Chose a weapon: sword & sheild, a gun, a bow & arrow and a magical wand. ")
 	your_weapon = weapon(chose_a_weapon, your_strength, your_defense)
-	print output_last(your_strength, your_defense, chose_a_weapon)
-	result = determine_result(your_strength, your_defense, your_weapon)
+	print output_last(your_strength, your_defense, chose_a_weapon, lives)
+	result = determine_result(your_strength, your_defense, your_weapon, chose_a_weapon)
 	print result
+	print magical_wand(chose_a_weapon)
+	return play_again(lives)
 
 main()
 	
