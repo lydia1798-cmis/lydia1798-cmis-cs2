@@ -1,30 +1,28 @@
 import math
-
-def average_(n0, n1, n2, n3, n4, numberofnumbers):
-	sum_ = n0 + n1 + n2 + n3 + n4
-	average = sum_ / number_correct
-	return average
-
-number_correct = 0
-#to find the number of numbers for the average
 	
 #between 0 and 10
 def range_(number):
+	number_correct = 0
+	sum_ = 0
 	if number >= 0 and number < 10:
 		number_correct = number_correct + 1
+		sum_ = 0 + number
 	else:
-		return "{} is out of range.".format(number)
+		print "{} is out of range.".format(number)
+	average = sum_ / number_correct
+	return average
 
 # e = even o = odd
 def O_E(average):
 	int_average = int(average)
 	if int_average % 2 == 0:
-		return even
+		return "even"
 	else:
-		return odd
+		return "odd"
 
-def output():
+def output(average, e_o):
 	print """
+
 The average is {}.
 The integer part of the average is {}.
 The integer part is {}.""".format(average, int(average), e_o)
@@ -47,9 +45,11 @@ It will print out whether the resulting average is even or odd.
 	n3 = range_(n_3)
 	n_4 = float(raw_input("n4: "))
 	n4 = range_(n_4)
-	average = average(n0, n1, n2, n3, n4)
+	number_correct = n_4
+	average = average_(n0, n1, n2, n3, n4, number_correct)
 	o_e = O_E(average)
-	print output
+	return output(average, o_e)
+	print output(average, o_e)
 
 main()
 	
