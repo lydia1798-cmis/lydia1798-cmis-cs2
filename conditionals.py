@@ -27,18 +27,15 @@ import random
 
 def lives(age):
 	if age <= 14: 
-		final = age + 9 + age/2
-	elif age >= 15: 
-		final = age - 9 + age/2
-	if age <= 14: 
 		final = (age + 9)/2
 	elif age >= 15: 
 		final = (age - 9)/2
 	return final
 
 def play_again(lives):
-	if lives < 0:
-		main()
+	if lives > 0:
+		print "Try again"
+		re_play()
 
 def incremented_lives(play_again, lives):
 	if play_again:
@@ -114,7 +111,7 @@ def magical_wand(weapon):
 		return "Because you used the easiest weapon, the magical wand, it took all of your energy to kill the monster. You only have 1 year left to live."
 
 
-def output_last(strength, defense, weapon, lives):
+def output_last(strength, defense, weapon, your_lives):
 	life = "lives"
 	if lives == 1:
 		life = "life"
@@ -123,27 +120,34 @@ You have {} {}.
 Your strength is at {}.
 Your defense is at {}.
 You have a {}.
-""".format(lives, life, strength, defense, weapon)
+""".format(your_lives, life, strength, defense, weapon)
 	
 
 #do you have to use string format or can you just or format?
+def chose_lives(age):
+	lives = int(raw_input("How old are you?: "))
+	your_lives = lives(lives)
+	main(your_lives)
+	
 
-def main():
+def main(your_lives):
 	print "You are walking along a path in a forest and you come upon a monster."
 	do_you_want_to_fight = raw_input("Do you want to fight with it? (yes/no) ")
 	your_choice = choice(do_you_want_to_fight)
 	print "Get ready..." #don't know if I should include this
-	lives = int(raw_input("How old are you? "))
+	your_lives = lives(chose_lives)
 	chose_a_pill = raw_input("Chose a pill, 1, 2, 3, 4 or random. ")
 	your_strength = strength(chose_a_pill)
 	your_defense = defense(chose_a_pill)
 	chose_a_weapon = raw_input("Chose a weapon: sword & sheild, a gun, a bow & arrow and a magical wand. ")
 	your_weapon = weapon(chose_a_weapon, your_strength, your_defense)
-	print output_last(your_strength, your_defense, chose_a_weapon, lives)
+	print output_last(your_strength, your_defense, chose_a_weapon, your_lives)
 	result = determine_result(your_strength, your_defense, your_weapon, chose_a_weapon)
 	print result
 	print magical_wand(chose_a_weapon)
-	return play_again(lives)
+	return play_again(your_lives)
 
-main()
+
+
+
 	
