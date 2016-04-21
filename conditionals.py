@@ -79,25 +79,25 @@ def defense(pill_number):
 #your weapon will decide if you win of lose. 
 #you have to elif everything 
 def weapon(weapon_of_choice, strength, defense):
-	if weapon_of_choice == "sword & sheild" and strength >= 50 and defense <= 50:
+	if weapon_of_choice == "1" and strength >= 50 and defense <= 50:
 		return True
 
-	elif not weapon_of_choice == "sword & sheild" and not strength >= 50 and not defense <= 50:
+	elif not weapon_of_choice == "1" and not strength >= 50 and not defense <= 50:
 		return False
 
-	elif weapon_of_choice == "gun" and strength >= 25 and defense <= 75:
+	elif weapon_of_choice == "2" and strength >= 25 and defense <= 75:
 		return True
 
-	elif not weapon_of_choice == "gun" and not strength >= 25 and not defense <= 75:
+	elif not weapon_of_choice == "2" and not strength >= 25 and not defense <= 75:
 		return False
 
-	elif weapon_of_choice == "bow & arrow" and strength >= 0 and defense >= 50:
+	elif weapon_of_choice == "3" and strength >= 0 and defense >= 50:
 		return True
 
-	elif not weapon_of_choice == "bow & arrow" and not strength >= 0 and not defense >= 50:
+	elif not weapon_of_choice == "3" and not strength >= 0 and not defense >= 50:
 		return False
 
-	elif weapon_of_choice == "magical wand":
+	elif weapon_of_choice == "4":
 		return True
 
 def determine_result(strength, defense, your_weapon, chose_a_weapon):
@@ -107,7 +107,7 @@ def determine_result(strength, defense, your_weapon, chose_a_weapon):
 		return "The monster comes at you but since you have a strength of {}, a defense of {} and a {}, you die....".format(strength, defense, chose_a_weapon)
 
 def magical_wand(weapon):
-	if weapon == "magical wand":
+	if weapon == "4":
 		return "Because you used the easiest weapon, the magical wand, it took all of your energy to kill the monster. You only have 1 year left to live."
 
 
@@ -139,7 +139,12 @@ def main(your_lives):
 	chose_a_pill = raw_input("Chose a pill, 1, 2, 3, 4 or random. ")
 	your_strength = strength(chose_a_pill)
 	your_defense = defense(chose_a_pill)
-	chose_a_weapon = raw_input("Chose a weapon: sword & sheild, a gun, a bow & arrow and a magical wand. ")
+	chose_a_weapon = raw_input("""
+Chose a weapon: 
+Type 1 for: sword & sheild  
+2 for: A gun
+3 for: bow & arrow 
+4 for: magical wand """)
 	your_weapon = weapon(chose_a_weapon, your_strength, your_defense)
 	print output_last(your_strength, your_defense, chose_a_weapon, your_lives)
 	result = determine_result(your_strength, your_defense, your_weapon, chose_a_weapon)
