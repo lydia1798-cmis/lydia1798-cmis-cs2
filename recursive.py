@@ -32,12 +32,21 @@ def adder(sum):
 	input_number = raw_input("Next Number: ")
 	if input_number == "":
 		print "The sum is {}.".format(sum)
-		exit()
 	else:
 		sum = sum + float(input_number)
 		adder(sum)
 		
+def biggest(number):
+	input_number = raw_input("""
+Next Number: """)
+	if input_number == "":
+		print number
+	else:
+		number > float(input_number)
+		number = number + float(input_number)
+		print number
 
+		
 def main():
 	countdown(10)
 	countup(1)
@@ -45,7 +54,8 @@ def main():
 	countdown_from(15, -8)
 	sum = 0
 	adder(sum)
-	return
+	number = float("-inf")
+	biggest(number)
 
 main()
 		
