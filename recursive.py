@@ -37,16 +37,43 @@ def adder(sum):
 		adder(sum)
 		
 def biggest(number):
-	input_number = raw_input("""
-Next Number: """)
+	input_number = raw_input("Next: ")
 	if input_number == "":
-		print number
+		return number
+	elif number < float(input_number):
+			number = float(input_number)
+			return biggest(number)
 	else:
-		number > float(input_number)
-		number = number + float(input_number)
-		print number
+		number = number 
+		return biggest(number)
 
-		
+def smallest(number):
+	input_number = raw_input("Next: ")
+	if input_number == "":
+		return number
+	elif number < float(input_number):
+		number = number
+		return smallest(number)
+	else:
+		number = float(input_number) 
+		return smallest(number)	
+
+def pow(x, n):
+	if n == 0:
+		return 1
+	elif n == 1:
+		return x
+	elif n == 2:
+		y = x * x
+		return y
+	else:
+		y = x * x
+		z = y * x
+		return pow(x, n) * n
+
+	
+
+	
 def main():
 	countdown(10)
 	countup(1)
@@ -54,8 +81,11 @@ def main():
 	countdown_from(15, -8)
 	sum = 0
 	adder(sum)
-	number = float("-inf")
-	biggest(number)
+	number_biggest = float("-inf")
+	print biggest(number_biggest)
+	number_smallest = float("+inf")
+	print smallest(number_smallest)
+	print pow(2, 9)
 
 main()
 		
