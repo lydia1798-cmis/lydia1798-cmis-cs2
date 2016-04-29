@@ -61,15 +61,10 @@ def smallest(number):
 def pow(x, n):
 	if n == 0:
 		return 1
-	elif n == 1:
-		return x
-	elif n == 2:
-		y = x * x
-		return y
 	else:
-		y = x * x
-		z = y * x
-		return pow(x, n) * n
+		n = n - 1
+		return n * (x * n)
+		pow(x, n)
 
 	
 
@@ -85,7 +80,7 @@ def main():
 	print biggest(number_biggest)
 	number_smallest = float("+inf")
 	print smallest(number_smallest)
-	print pow(2, 9)
+	print pow(2, 3)
 
 main()
 		
