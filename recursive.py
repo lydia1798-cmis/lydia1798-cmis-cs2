@@ -62,12 +62,7 @@ def pow(x, n):
 	if n == 0:
 		return 1
 	else:
-		n = n - 1
-		return n * (x * n)
-		pow(x, n)
-
-	
-
+		return x * pow(x, n - 1)
 	
 def main():
 	countdown(10)
@@ -80,7 +75,7 @@ def main():
 	print biggest(number_biggest)
 	number_smallest = float("+inf")
 	print smallest(number_smallest)
-	print pow(2, 3)
+	print pow(3, 2)
 
 main()
 		
