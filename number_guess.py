@@ -1,30 +1,32 @@
 import random
 import math
 
-def rounds(right_n, number_recursed):
+def rounds(right_n, number_recursed, c):
 	user_n = raw_input("Guess: ")
 	if right_n == int(user_n):
-		print "you are correct"
-		return 1
+		print """you are correct
+"""
+		c = c + 1
+		return c
 	elif number_recursed == 0:
 		print ""
 	elif right_n < int(user_n):
 		print "too high"
-		return rounds(right_n, number_recursed - 1)
+		return rounds(right_n, number_recursed - 1, c)
 	elif right_n > int(user_n):
 		print "too low"
-		return rounds(right_n, number_recursed - 1)
+		return rounds(right_n, number_recursed - 1, c)
 
-def round_number(n):
+def round_number(n, c):	
 	if n == 0:
-		return "You got {} correct".format(str"rounds")
+		print "You got {} correct".format(str(c))
 	else:
-		right_n = random.randint(0, 100)
+		right_n = 5
 		print "You have {} rounds left".format(n)
-		round_ = rounds(right_n, 5)
-		round_number(n - 1)
+		c = rounds(right_n, 5, c)
+		round_number(n - 1, c)
 	
 def main():
-	n = 3
-	round_number(n)
+	round_number(3, 0)
+
 main()
