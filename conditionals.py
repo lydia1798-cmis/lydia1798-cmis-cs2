@@ -37,9 +37,11 @@ You have chosen not to fight, giving the enemy the upper hand and you are killed
 
 def lives(age):
 	if age <= 14: 
-		final = (age + 9)/2
+		final = (age + 9)/2 
 	elif age >= 15: 
-		final = (age - 9)/2
+		almost_final = (age - 9)/2 
+		random_ = random.random
+		final = almost_final * random_
 	return final
 
 def strength(chose_a_number):
@@ -87,7 +89,7 @@ def weapon(weapon_number, strength, defense):
 	elif not weapon_number == 3 and not strength >= 0 and not defense >= 50:
 		return False
 
-	elif weapon_number == 4:
+	else:
 		return True
 
 def weapon_name(weapon_number):
@@ -123,7 +125,7 @@ def magical_wand(weapon_number):
 	if weapon_number == 4:
 		return "Because you used the easiest weapon, the magical wand, it took all of your energy to kill the monster. You only have 1 year left to live."
 	else:
-		return "Because you didn't use the easiest weapon, you are safe for the evil magcial powers of the forest."
+		return "Because you didn't use the easiest weapon, you are safe from the evil magcial powers of the forest."
 
 def play_again(lives):
 	if lives > 0:
