@@ -40,8 +40,8 @@ def lives(age):
 		final = (age + 9)/2 
 	elif age >= 15: 
 		almost_final = (age - 9)/2 
-		random_ = random.random
-		final = almost_final * random_
+		random_ = random.random()
+		final = almost_final + random_
 	return final
 
 def strength(chose_a_number):
@@ -71,7 +71,10 @@ def defense(chose_a_number):
 	return defense
 
 def weapon(weapon_number, strength, defense):
-	if weapon_number == 1 and strength >= 50 and defense <= 50:
+	if weapon_number == 4:
+		return True	
+
+	elif weapon_number == 1 and strength >= 50 and defense <= 50:
 		return True
 
 	elif not weapon_number == 1 and not strength >= 50 and not defense <= 50:
@@ -89,8 +92,6 @@ def weapon(weapon_number, strength, defense):
 	elif not weapon_number == 3 and not strength >= 0 and not defense >= 50:
 		return False
 
-	else:
-		return True
 
 def weapon_name(weapon_number):
 	if weapon_number == 1:
