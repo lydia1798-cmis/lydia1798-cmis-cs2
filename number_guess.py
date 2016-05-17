@@ -24,9 +24,13 @@ def bonus(highest_number, lowest_number, number, computers_correct, number_recur
 	elif number_recursed == 0:
 		return computers_correct
 	elif your_number == "h":
-		bonus(number, lowest_number, ((number - highest_number) / 2) + number, computers_correct, number_recursed - 1)
+		number_1 = ((number - highest_number) / 2) + number
+		range_number = random.randint(abs(number- 1), abs(number_1 - 1))
+		bonus(number, lowest_number, range_number, computers_correct, number_recursed - 1)
 	else:
-		bonus(highest_number, number, ((highest_number - number) / 2) + number, computers_correct, number_recursed - 1)
+		number_1 = ((highest_number - number) / 2) + number
+		range_number = random.randint(abs(number - 1), abs(number_1 - 1))
+		bonus(highest_number, number, range_number, computers_correct, number_recursed - 1)
 
 def round_number(n, uc, computers_correct):	
 	if n == 0:
@@ -34,12 +38,13 @@ def round_number(n, uc, computers_correct):
 {} {}
 """.format(str(uc), str(computers_correct))
 	else:
-		right_n = random.randint(1, 100)
+		right_n = random.randint(0, 100)
 		print "\nYou have {} rounds left".format(n)
 		uc = rounds(right_n, 4, uc)
 		highest_number = 100
 		lowest_number = 0
 		number = 50
+		computers_correct = 0
 		computers_correct = bonus(highest_number, lowest_number, number, computers_correct, 4) 
 		round_number(n - 1, uc, computers_correct)
 	
