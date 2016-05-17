@@ -25,7 +25,7 @@ def bonus(highest_number, lowest_number, number, computers_correct, number_recur
 		return computers_correct
 	elif your_number == "h":
 		number_1 = ((number - highest_number) / 2) + number
-		range_number = random.randint(abs(number- 1), abs(number_1 - 1))
+		range_number = random.randint(abs(number_1 - 1), abs(number- 1))
 		bonus(number, lowest_number, range_number, computers_correct, number_recursed - 1)
 	else:
 		number_1 = ((highest_number - number) / 2) + number
