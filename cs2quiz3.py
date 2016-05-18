@@ -1,6 +1,6 @@
 #Section 1: Terminology
 # 1) What is a recursive function?
-# a recursive function is a function that calls itslef. 
+# A recursive function is a function that calls itslef. 
 #
 #
 # 2) What happens if there is no base case defined in a recursive function?
@@ -36,9 +36,9 @@
 #c2 = 4
 #c3 = 45
 
-#d1 = 
-#d2 =
-#d3 =
+#d1 = 4
+#d2 = 8
+#d3 = 4
 
 #Section 3: Programming
 #Write a script that asks the user to enter a series of numbers.
@@ -52,7 +52,7 @@ def odds(total_odds, number_odd):
 	your_number = raw_input("Next: ")
 	#base case
 	if your_number == "":
-		average = total_odds/number_odd
+		average = float(total_odds)/float(number_odd)
 		print "The average of your odd numbers is {}".format(average)	
 	#the next two are both recursive
 	elif int(your_number)%2 == 0:
