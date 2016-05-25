@@ -1,22 +1,22 @@
 #Section 1: Terminology
 # 1) What is a recursive function?
-# A recursive function is a function that calls itslef. 
+# A recursive function is a function that calls itslef. (1)
 #
 #
 # 2) What happens if there is no base case defined in a recursive function?
-# If there is no base case defined in a recursive funtion then the funtion will keep on calling itself forever. 
+# If there is no base case defined in a recursive funtion then the funtion will keep on calling itself forever. (1)
 #
 #
 # 3) What is the first thing to consider when designing a recursive function?
-# The first thing to consider when desighing a recursive function in the base case. 
+# The first thing to consider when desighing a recursive function in the base case. (1)
 #
 #
 # 4) How do we put data into a function call?
-# We put data into a function call in the form of arguments.
+# We put data into a function call in the form of arguments. (1)
 #
 # 
 # 5) How do we get data out of a function call?
-# We get data out of the funtion call by returning it with in the function. 
+# We get data out of the funtion call by returning it with in the function. (1) 
 #
 #
 
@@ -24,21 +24,21 @@
 # Read the following function definitions and function calls.
 # Then determine the values of the variables a1-d3.
 
-#a1 = 8
-#a2 = 8
-#a3 = -1
+#a1 = 8 (1)
+#a2 = 8 (1)
+#a3 = -1 (1)
 
-#b1 = 2
-#b2 = 2
-#b3 = -2
+#b1 = 2 (1)
+#b2 = 2 (1)
+#b3 = -2 (-1)
 
-#c1 = -2
-#c2 = 4
-#c3 = 45
+#c1 = -2 (1)
+#c2 = 4 (1)
+#c3 = 45 (1)
 
-#d1 = 4
-#d2 = 8
-#d3 = 4
+#d1 = 4 (-1)
+#d2 = 8 (1)
+#d3 = 4 (1)
 
 #Section 3: Programming
 #Write a script that asks the user to enter a series of numbers.
