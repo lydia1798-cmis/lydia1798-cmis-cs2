@@ -50,17 +50,17 @@
 
 def odds(total_odds, number_odd):
 	your_number = raw_input("Next: ")
-	#base case
+	#base case (2)
 	if your_number == "":
 		average = float(total_odds)/float(number_odd)
-		print "The average of your odd numbers is {}".format(average)	
-	#the next two are both recursive
-	elif int(your_number)%2 == 0:
+		print "The average of your odd numbers is {}".format(average)	# (-1)
+	#the next two are both recursive(2)
+	elif int(your_number)%2 == 0: #(2)
 		odds(total_odds, number_odd)
 	else:
-		number_odd = number_odd + 1 
+		number_odd = number_odd + 1 #(1)
 		total_odds = total_odds + int(your_number)
-		odds(total_odds, number_odd)
+		odds(total_odds, number_odd) #(-1)
 
 def main():
 	total_odds = 0
@@ -68,6 +68,6 @@ def main():
 	odds(total_odds, number_odd)
 	
 
-main()
+main() #(1)
 
 
